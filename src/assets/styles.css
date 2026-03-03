@@ -1,0 +1,118 @@
+:root {
+  --mg-primary: #6c5ce7;
+  --mg-secondary: #8e7cff;
+  --mg-bg: #f5f6fa;
+  --mg-text-dark: #1f2937;
+  --mg-text-light: #6b7280;
+  --mg-gradient: linear-gradient(135deg, #6c5ce7 0%, #4d8dff 100%);
+  --mg-radius-lg: 20px;
+  --mg-radius-md: 14px;
+  --mg-shadow: 0 10px 24px rgba(108, 92, 231, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #f2eeff 0%, #eef6ff 40%, var(--mg-bg) 100%);
+  color: var(--mg-text-dark);
+  font-family: "Segoe UI", "SF Pro Display", "Helvetica Neue", sans-serif;
+  min-height: 100vh;
+}
+
+.app-shell {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: transparent;
+}
+
+.app-content {
+  min-height: 100vh;
+  padding: 16px 16px 96px;
+}
+
+.card-soft {
+  border: 0;
+  border-radius: var(--mg-radius-lg);
+  box-shadow: var(--mg-shadow);
+  background: #fff;
+}
+
+.title-sm {
+  font-size: 0.85rem;
+  color: var(--mg-text-light);
+  margin: 0;
+}
+
+.title-lg {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--mg-text-light);
+  font-size: 0.9rem;
+}
+
+.gradient-bg {
+  background: var(--mg-gradient);
+  color: #fff;
+}
+
+.btn-primary-gradient {
+  border: 0;
+  background: var(--mg-gradient);
+  color: #fff;
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-weight: 600;
+  width: 100%;
+  box-shadow: 0 8px 18px rgba(108, 92, 231, 0.25);
+}
+
+.btn-primary-gradient:focus,
+.btn-primary-gradient:hover {
+  color: #fff;
+  filter: brightness(1.03);
+}
+
+.page-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: all 0.28s ease;
+}
+
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.chip {
+  border: 1px solid #dfdef2;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  background: #fff;
+  color: var(--mg-text-light);
+}
+
+.chip.active {
+  color: #fff;
+  border-color: transparent;
+  background: var(--mg-gradient);
+}
