@@ -1,6 +1,6 @@
-# Mungero (Vue + Vite)
+#(Vue + Vite)
 
-SPA mobile-first para gestao de aplicacoes, dosagem e progresso corporal.
+SPA PWA para gestao de aplicacoes, dosagem e progresso corporal.
 
 ## Rodar
 
