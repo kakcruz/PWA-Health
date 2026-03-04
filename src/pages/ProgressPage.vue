@@ -90,7 +90,7 @@
           <button type="button" class="btn-close" aria-label="Fechar" @click="showMeasuresModal = false"></button>
         </div>
         <div class="measure-modal-body">
-          <div class="row g-2">
+          <div class="row g-3 measure-grid">
             <div class="col-6" v-for="measure in allMeasures" :key="`modal-${measure.key}`">
               <div class="measure-item">
                 <div class="d-flex justify-content-between align-items-start mb-1">
@@ -154,19 +154,19 @@ const progressPercent = computed(() => {
 });
 
 const allMeasures = computed(() => [
-  { key: "pescoco", label: "Pescoco", value: 33.0, trend: "down", icon: "bi bi-person-badge" },
-  { key: "ombro", label: "Ombro", value: 98.0, trend: "up", icon: "bi bi-arrows-expand" },
+  { key: "pescoco", label: "Pescoco", value: 33.0, trend: "down", icon: "bi bi-person" },
+  { key: "ombro", label: "Ombro", value: 98.0, trend: "up", icon: "bi bi-person-standing" },
   { key: "peito", label: "Peito", value: 93.0, trend: "down", icon: "bi bi-heart-pulse" },
   { key: "cintura", label: "Cintura", value: Number(progressStore.measures.cintura), trend: "down", icon: "bi bi-rulers" },
   { key: "quadril", label: "Quadril", value: Number(progressStore.measures.quadril), trend: "up", icon: "bi bi-person-standing" },
   { key: "braco_esq", label: "Braco (Esq.)", value: 32.0, trend: "down", icon: "bi bi-person-arms-up" },
   { key: "braco_dir", label: "Braco (Dir.)", value: 32.0, trend: "up", icon: "bi bi-person-arms-up" },
-  { key: "abd_sup", label: "Abdomen Sup.", value: 80.0, trend: "down", icon: "bi bi-crosshair" },
-  { key: "abd_inf", label: "Abdomen Inf.", value: 93.0, trend: "up", icon: "bi bi-crosshair2" },
+  { key: "abd_sup", label: "Abdomen Sup.", value: 80.0, trend: "down", icon: "bi bi-rulers" },
+  { key: "abd_inf", label: "Abdomen Inf.", value: 93.0, trend: "up", icon: "bi bi-rulers" },
   { key: "coxa_esq", label: "Coxa (Esq.)", value: 55.0, trend: "down", icon: "bi bi-person-walking" },
   { key: "coxa_dir", label: "Coxa (Dir.)", value: 55.3, trend: "up", icon: "bi bi-person-walking" },
-  { key: "pant_esq", label: "Panturrilha (Esq.)", value: 36.2, trend: "down", icon: "bi bi-universal-access" },
-  { key: "pant_dir", label: "Panturrilha (Dir.)", value: 36.5, trend: "up", icon: "bi bi-universal-access" }
+  { key: "pant_esq", label: "Panturrilha (Esq.)", value: 36.2, trend: "down", icon: "bi bi-person-walking" },
+  { key: "pant_dir", label: "Panturrilha (Dir.)", value: 36.5, trend: "up", icon: "bi bi-person-walking" }
 ]);
 
 const previewMeasures = computed(() => allMeasures.value.slice(0, 4));
@@ -348,7 +348,7 @@ section {
   max-width: 380px;
   background: #fff;
   border-radius: 18px;
-  padding: 16px;
+  padding: 18px;
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.28);
 }
 
@@ -356,13 +356,17 @@ section {
   max-height: 58vh;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-right: 2px;
+  padding: 2px 4px 2px 2px;
+}
+
+.measure-grid {
+  margin-top: 2px;
 }
 
 .measure-item {
   border: 1px solid #eceaf8;
   border-radius: 12px;
-  padding: 10px;
+  padding: 12px;
   background: #fff;
 }
 

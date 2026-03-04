@@ -1,16 +1,15 @@
 <template>
   <section>
-    <AppHeader :title="`Ola, ${userStore.user.name}`" subtitle="MUNGERO" />
+    <AppHeader :title="`Olá, ${userStore.user.name}`" />
 
     <p class="subtitle mb-3">Tudo pronto para seu acompanhamento hoje?</p>
 
     <CardComponent custom-class="p-2 mb-3 border-0">
+      <div class="pt-1 pb-4">
+        <p class="next-application-lead mb-0">Sua proxima aplicação esta programada para:</p>
+      </div>
       <CountdownTimer :target-date="applicationStore.next_application_date" />
       <div class="p-3">
-        <h2 class="h6 fw-bold mb-1">Proxima Aplicacao</h2>
-        <p class="subtitle mb-3">
-          Sua dose esta agendada para {{ applicationStore.nextApplicationDateFormatted }}.
-        </p>
         <ButtonPrimary>Ver detalhes da dose</ButtonPrimary>
       </div>
     </CardComponent>
@@ -31,6 +30,7 @@
 </template>
 
 <script setup>
+import { onBeforeUnmount, onMounted } from "vue";
 import AppHeader from "../components/AppHeader.vue";
 import ButtonPrimary from "../components/ButtonPrimary.vue";
 import CardComponent from "../components/CardComponent.vue";
@@ -41,6 +41,18 @@ import { useApplicationStore } from "../stores/applicationStore";
 
 const userStore = useUserStore();
 const applicationStore = useApplicationStore();
+let refreshInterval = null;
+
+onMounted(() => {
+  applicationStore.refreshNextApplicationDate();
+  refreshInterval = setInterval(() => {
+    applicationStore.refreshNextApplicationDate();
+  }, 60 * 1000);
+});
+
+onBeforeUnmount(() => {
+  if (refreshInterval) clearInterval(refreshInterval);
+});
 
 const managementItems = [
   { title: "Historico", desc: "Aplicacoes anteriores", icon: "bi bi-clock-history" },
@@ -49,3 +61,13 @@ const managementItems = [
   { title: "Progresso", desc: "Peso e medidas", icon: "bi bi-graph-up-arrow" }
 ];
 </script>
+
+<style scoped>
+.next-application-lead {
+  color: #2f3a56;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+</style>
+
