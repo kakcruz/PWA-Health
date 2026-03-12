@@ -424,16 +424,21 @@ function closeSuccessModal() {
 
 .date-input-wrap {
   margin-top: 10px;
+  width: 100%;
+  min-width: 0;
 }
 
 .date-input {
   width: 100%;
+  max-width: 100%;
   border: 1px solid #d8deea;
   border-radius: 16px;
+  box-sizing: border-box;
   padding: 12px 12px 12px 14px;
   font-size: 1.05rem;
   color: #1d2538;
   background: #fff;
+  min-width: 0;
 }
 
 .weekday-hint {
